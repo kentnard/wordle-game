@@ -1,12 +1,19 @@
 import random
 import json
+import urllib.request
 
 MAX_LIFE = 6
 WORD_LENGTH = 5
 
-with open(r"C:\Users\Kentnard Jalen\Downloads\Wordle Project\words_dictionary.json") as f :
-    data = f.read() 
-data_dict = json.loads(data) #Change the data type into "dict"
+# Download the database
+DOWNLOAD_ROOT = r"https://raw.githubusercontent.com/kentnard/wordle-game/main/"
+file_name = r"words_dictionary.json"
+print(f"Downloading {file_name}")
+URL = DOWNLOAD_ROOT + file_name
+
+data = urllib.request.urlopen(URL) #Get an object of type HTTPResponse
+data_decode = data.read().decode('utf-8') #Convert it to String
+data_dict = json.loads(data_decode) #Convert it to Dictionary
 
 for key in data_dict.keys() :
     data_dict[key] = len(key)
