@@ -73,6 +73,7 @@ def checkWord(guess, answer) :
                 color_palette[i] = (guess[i], 'red')
     return [x[1] for x in color_palette]
 
+#Game starts here
 life = MAX_LIFE
 is_winning = False
 attempt = 1
