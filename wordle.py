@@ -77,7 +77,6 @@ def checkWord(guess, answer) :
     for i in range(WORD_LENGTH) :
         if color_palette[i][1] == COLOR_YELLOW :
             letter_answer_count = answer.count(guess[i])
-            #letter_guess_count = guess.count(guess[i])
             letter_green_count = color_palette.count((guess[i], COLOR_GREEN))
             letter_yellow_count_until_now = color_palette[:i].count((guess[i], COLOR_YELLOW))
             if letter_green_count + letter_yellow_count_until_now + 1 > letter_answer_count :
@@ -120,7 +119,6 @@ def change_color_all(guess, color_list, string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') :
     return string_progress
 
 def change_color_answer(guess, color_list) :
-    letter_list = [letter for letter in guess]
     string_progress = ""
     for i in range(WORD_LENGTH) :
         string_progress += color_list[i] + guess[i]
